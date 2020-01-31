@@ -1,7 +1,11 @@
 let fs = require("fs");
 
 exports.create = function(type,data){
-  
+    const json = JSON.parse('./db.json');
+    console.log(json);
+    json.push(data);
+    let string = json.stringify(output);
+    fs.writeFileSync('./db.json', string);
 }
 exports.find = function(type,id){
 
@@ -12,3 +16,4 @@ exports.findAll = function(type){
     let things = obj[type];
     return things;
 }
+
